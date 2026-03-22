@@ -1,0 +1,35 @@
+name: C++ Judge
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Compile
+      run: g++ main.cpp -O2 -o main
+
+    - name: Run tests
+      run: |
+        score=0
+        total=0
+
+        for input in test/*.in; do
+          output="${input%.in}.out"
+
+          ./main < "$input" > result.txt
+
+          if diff -q result.txt "$output"; then
+            echo "$input: OK"
+            score=$((score+1))
+          else
+            echo "$input: WA"
+          fi
+
+          total=$((total+1))
+        done
+
+        echo "Score: $score/$total"
