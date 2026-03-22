@@ -4,6 +4,10 @@ int n,m;
 vector<int> adj[1005];
 int a[1005][1005];
 int main(){
+    if(fopen("vao.inp","r")){
+        freopen("vao.inp","r",stdin);
+        freopen("ra.out","w",stdout);
+    }
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
