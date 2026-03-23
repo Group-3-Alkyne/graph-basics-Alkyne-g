@@ -16,7 +16,6 @@ int main(){
         a[v][u]=1;
     }
 
-    // in danh sách kề
     for(int i=1;i<=n;i++){
         sort(adj[i].begin(),adj[i].end());
         for(int j=0;j<adj[i].size();j++){
@@ -27,8 +26,6 @@ int main(){
     }
 
     cout<<"\n";
-
-    // in ma trận kề
     for(int i=1;i<=n;i++){
         for(int j=1;j<=n;j++){
             cout<<a[i][j];
